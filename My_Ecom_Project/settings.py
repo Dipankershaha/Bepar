@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 from pathlib import Path
 import os
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 
 import django_heroku
 import dj_database_url
@@ -138,12 +141,18 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-STATICFILES_DIRS = [STATIC_DIR,]
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# STATICFILES_DIRS = [STATIC_DIR,]
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 #MEDIA
 MEDIA_ROOT = MEDIA_DIR
 MEDIA_URL = '/media/'
 
 LOGIN_URL = '/account/login/'
+
+cloudinary.config( 
+  cloud_name = "dc3hi9hib", 
+  api_key = "256577772793599", 
+  api_secret = "t5OuqhfoIYahEUYi3KJeffL7faA" 
+)
 
 django_heroku.settings(locals())
