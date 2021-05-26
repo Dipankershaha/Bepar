@@ -141,19 +141,22 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # STATICFILES_DIRS = [STATIC_DIR,]
-# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
 #MEDIA
 MEDIA_ROOT = MEDIA_DIR
 MEDIA_URL = '/media/'
 
 LOGIN_URL = '/account/login/'
 
-cloudinary.config( 
-  cloud_name = "dc3hi9hib", 
-  api_key = "256577772793599", 
-  api_secret = "t5OuqhfoIYahEUYi3KJeffL7faA" 
-)
+# cloudinary.config( 
+#   cloud_name = "dc3hi9hib", 
+#   api_key = "256577772793599", 
+#   api_secret = "t5OuqhfoIYahEUYi3KJeffL7faA" 
+# )
 
 django_heroku.settings(locals())
